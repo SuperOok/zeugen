@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration" nsURI="zeugen.configuration" nsPrefix="http://zeugen.configuration/1.0">
-  <eClassifiers xsi:type="ecore:EClass" name="Schule"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Lehrer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Unterrichtsfach"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Klassenstufe"/>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration" nsURI="http://zeugen.configuration/1_0" nsPrefix="zeugen.configuration">
+  <eClassifiers xsi:type="ecore:EClass" name="Schule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adresse" lowerBound="1"
+        eType="#//Adresse" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lehrer" lowerBound="1"
+        upperBound="-1" eType="#//Lehrkraft" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schulleiter" lowerBound="1"
+        eType="#//Lehrkraft" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klassenstufen" upperBound="-1"
+        eType="#//Klassenstufe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faecher" upperBound="-1"
+        eType="#//Notentyp" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lehrkraft" eSuperTypes="#//Person"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Notentyp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typ" lowerBound="1" eType="#//FachTyp"
+        defaultValueLiteral="SCHULFACH"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klassenstufen" upperBound="-1"
+        eType="#//Klassenstufe" eOpposite="#//Klassenstufe/notentypen"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Klassenstufe">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anzeigename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notentypen" upperBound="-1"
+        eType="#//Notentyp" eOpposite="#//Notentyp/klassenstufen"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Adresse">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strasse" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postleitzahl" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stadt" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vorname" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nachname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="geburtstag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="geburtsort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="geschlecht" lowerBound="1"
+        eType="#//Geschlecht" defaultValueLiteral="UNBEKANNT" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namenszusatz" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Geschlecht">
+    <eLiterals name="MANN" value="1" literal="MANN"/>
+    <eLiterals name="FRAU" value="2"/>
+    <eLiterals name="UNBEKANNT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FachTyp">
+    <eLiterals name="SCHULFACH"/>
+    <eLiterals name="ARBEITSGEMEINSCHAFT" value="1"/>
+    <eLiterals name="ANDERE" value="2"/>
+  </eClassifiers>
 </ecore:EPackage>
