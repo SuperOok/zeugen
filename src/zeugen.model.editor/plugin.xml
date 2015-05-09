@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="ZeugenEditorAdvisorApplication">
+      <!-- @generated zeugen -->
+      <application>
+         <run class="zeugen.configuration.presentation.ZeugenEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated zeugen -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="zeugen.configuration.presentation.ZeugenEditorAdvisor$Perspective"
+            id="zeugen.configuration.presentation.ZeugenEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated zeugen -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="zeugen.configuration.presentation.ZeugenEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="zeugen.configuration.presentation.ZeugenEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated zeugen -->
+      <key
+            commandId="zeugen.configuration.presentation.ZeugenEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="zeugen.configuration.presentation.ZeugenEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated zeugen -->
+      <actionSet
+            label="%_UI_ZeugenEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="ZeugenEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="zeugen.configuration.presentation.ZeugenEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="zeugen.configuration.presentation.ZeugenEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="zeugen.configuration.presentation.ZeugenEditorAdvisorOpenURICommand"
+               class="zeugen.configuration.presentation.ZeugenEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="zeugen.configuration.presentation.ZeugenEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="zeugen.configuration.presentation.ZeugenEditorAdvisorOpenCommand"
+               class="zeugen.configuration.presentation.ZeugenEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="zeugen.configuration.presentation.ZeugenEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated zeugen -->
+      <actionSet
+            label="%_UI_ConfigurationModelWizard_ActionSet_label"
+            visible="true"
+            id="zeugen.configuration.presentation.ConfigurationActionBarContributorActionSet">
+         <action
+               label="%_UI_ConfigurationModelWizard_label"
+               class="zeugen.configuration.presentation.ConfigurationActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="zeugen.configuration.presentation.ConfigurationActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated zeugen -->
+      <editor
+            id="zeugen.configuration.presentation.ConfigurationEditorID"
+            name="%_UI_ConfigurationEditor_label"
+            icon="icons/full/obj16/ConfigurationModelFile.gif"
+            extensions="configuration"
+            class="zeugen.configuration.presentation.ConfigurationEditor"
+            contributorClass="zeugen.configuration.presentation.ConfigurationActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

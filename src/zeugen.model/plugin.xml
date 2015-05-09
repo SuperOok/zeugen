@@ -10,7 +10,7 @@
       <!-- @generated zeugen -->
       <package
             uri="http://zeugen.configuration/1_0"
-            class="configuration.ConfigurationPackage"
+            class="zeugen.configuration.ConfigurationPackage"
             genModel="model/zeugen.genmodel"/>
    </extension>
 
