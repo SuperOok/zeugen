@@ -5,9 +5,28 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="menu:?after=additions">
+            locationURI="popup:?after=additions">
          <command
-               commandId="zeugen.pdfgen.command1"
+               commandId="zeugen.ui.generateAll"
+               label="Zeugnisse generieren"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:file">
+         <command
+               commandId="zeugen.ui.generateAll"
+               label="Zeugnisse generieren"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar">
+         <command
+               commandId="zeugen.ui.generateAll"
+               label="Zeugnisse generieren"
                style="push">
          </command>
       </menuContribution>
