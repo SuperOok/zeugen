@@ -5,6 +5,12 @@ Bundle-SymbolicName: zeugen.htmlgen
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: zeugen.htmlgen.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ zeugen.model;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+
