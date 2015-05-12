@@ -10,14 +10,20 @@
         upperBound="-1" eType="#//Lehrkraft" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schulleiter" lowerBound="1"
         eType="#//Schulleiter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="klassenstufen" upperBound="-1"
-        eType="#//Klassenstufe" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="faecher" upperBound="-1"
-        eType="#//Notentyp" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klassenstufen" lowerBound="1"
+        upperBound="-1" eType="#//Klassenstufe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faecher" lowerBound="1"
+        upperBound="-1" eType="#//Notentyp" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schueler" lowerBound="1"
+        upperBound="-1" eType="#//Schueler" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ehemalige" upperBound="-1"
+        eType="#//Person" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Lehrkraft" eSuperTypes="#//Person">
     <eStructuralFeatures xsi:type="ecore:EReference" name="faecher" upperBound="-1"
         eType="#//Notentyp" eOpposite="#//Notentyp/lehrkraefte"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klasse" eType="ecore:EClass zeugnis.ecore#//Klasse"
+        eOpposite="zeugnis.ecore#//Klasse/klassenlehrer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Notentyp">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -66,5 +72,10 @@
     <eLiterals name="ANDERE" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Schulleiter" eSuperTypes="#//Lehrkraft"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Schueler" eSuperTypes="#//Person"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Schueler" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klasse" eType="ecore:EClass zeugnis.ecore#//Klasse"
+        eOpposite="zeugnis.ecore#//Klasse/schueler"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zeugnis" upperBound="-1"
+        eType="ecore:EClass zeugnis.ecore#//Zeugnis" eOpposite="zeugnis.ecore#//Zeugnis/schueler"/>
+  </eClassifiers>
 </ecore:EPackage>

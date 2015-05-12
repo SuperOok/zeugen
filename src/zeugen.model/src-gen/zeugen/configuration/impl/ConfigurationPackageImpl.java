@@ -22,6 +22,8 @@ import zeugen.configuration.Person;
 import zeugen.configuration.Schueler;
 import zeugen.configuration.Schule;
 import zeugen.configuration.Schulleiter;
+import zeugen.zeugnis.ZeugnisPackage;
+import zeugen.zeugnis.impl.ZeugnisPackageImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
@@ -154,11 +156,18 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		ZeugnisPackageImpl theZeugnisPackage = (ZeugnisPackageImpl) (EPackage.Registry.INSTANCE
+				.getEPackage(ZeugnisPackage.eNS_URI) instanceof ZeugnisPackageImpl ? EPackage.Registry.INSTANCE
+				.getEPackage(ZeugnisPackage.eNS_URI) : ZeugnisPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theConfigurationPackage.createPackageContents();
+		theZeugnisPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theConfigurationPackage.initializePackageContents();
+		theZeugnisPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theConfigurationPackage.freeze();
@@ -245,6 +254,26 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	@Override
+	public EReference getSchule_Schueler() {
+		return (EReference) schuleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getSchule_Ehemalige() {
+		return (EReference) schuleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getLehrkraft() {
 		return lehrkraftEClass;
 	}
@@ -257,6 +286,16 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 	@Override
 	public EReference getLehrkraft_Faecher() {
 		return (EReference) lehrkraftEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getLehrkraft_Klasse() {
+		return (EReference) lehrkraftEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -495,6 +534,26 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	@Override
+	public EReference getSchueler_Klasse() {
+		return (EReference) schuelerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getSchueler_Zeugnis() {
+		return (EReference) schuelerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EEnum getGeschlecht() {
 		return geschlechtEEnum;
 	}
@@ -546,9 +605,12 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 		createEReference(schuleEClass, SCHULE__SCHULLEITER);
 		createEReference(schuleEClass, SCHULE__KLASSENSTUFEN);
 		createEReference(schuleEClass, SCHULE__FAECHER);
+		createEReference(schuleEClass, SCHULE__SCHUELER);
+		createEReference(schuleEClass, SCHULE__EHEMALIGE);
 
 		lehrkraftEClass = createEClass(LEHRKRAFT);
 		createEReference(lehrkraftEClass, LEHRKRAFT__FAECHER);
+		createEReference(lehrkraftEClass, LEHRKRAFT__KLASSE);
 
 		notentypEClass = createEClass(NOTENTYP);
 		createEAttribute(notentypEClass, NOTENTYP__NAME);
@@ -578,6 +640,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 		schulleiterEClass = createEClass(SCHULLEITER);
 
 		schuelerEClass = createEClass(SCHUELER);
+		createEReference(schuelerEClass, SCHUELER__KLASSE);
+		createEReference(schuelerEClass, SCHUELER__ZEUGNIS);
 
 		// Create enums
 		geschlechtEEnum = createEEnum(GESCHLECHT);
@@ -608,6 +672,10 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		ZeugnisPackage theZeugnisPackage = (ZeugnisPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ZeugnisPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -637,11 +705,19 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchule_Klassenstufen(), this.getKlassenstufe(), null,
-				"klassenstufen", null, 0, -1, Schule.class, !IS_TRANSIENT,
+				"klassenstufen", null, 1, -1, Schule.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchule_Faecher(), this.getNotentyp(), null,
-				"faecher", null, 0, -1, Schule.class, !IS_TRANSIENT,
+				"faecher", null, 1, -1, Schule.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchule_Schueler(), this.getSchueler(), null,
+				"schueler", null, 1, -1, Schule.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchule_Ehemalige(), this.getPerson(), null,
+				"ehemalige", null, 0, -1, Schule.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -650,6 +726,11 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 		initEReference(getLehrkraft_Faecher(), this.getNotentyp(),
 				this.getNotentyp_Lehrkraefte(), "faecher", null, 0, -1,
 				Lehrkraft.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getLehrkraft_Klasse(), theZeugnisPackage.getKlasse(),
+				theZeugnisPackage.getKlasse_Klassenlehrer(), "klasse", null, 0,
+				1, Lehrkraft.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
@@ -741,6 +822,16 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 
 		initEClass(schuelerEClass, Schueler.class, "Schueler", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchueler_Klasse(), theZeugnisPackage.getKlasse(),
+				theZeugnisPackage.getKlasse_Schueler(), "klasse", null, 0, 1,
+				Schueler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getSchueler_Zeugnis(), theZeugnisPackage.getZeugnis(),
+				theZeugnisPackage.getZeugnis_Schueler(), "zeugnis", null, 0,
+				-1, Schueler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(geschlechtEEnum, Geschlecht.class, "Geschlecht");

@@ -8,8 +8,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import zeugen.configuration.ConfigurationPackage;
 import zeugen.configuration.Schueler;
 
 /**
@@ -40,8 +42,46 @@ public class SchuelerItemProvider extends PersonItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addKlassePropertyDescriptor(object);
+			addZeugnisPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Klasse feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addKlassePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Schueler_klasse_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Schueler_klasse_feature", "_UI_Schueler_type"),
+				ConfigurationPackage.Literals.SCHUELER__KLASSE, true, false,
+				true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Zeugnis feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addZeugnisPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Schueler_zeugnis_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Schueler_zeugnis_feature", "_UI_Schueler_type"),
+				ConfigurationPackage.Literals.SCHUELER__ZEUGNIS, true, false,
+				true, null, null, null));
 	}
 
 	/**

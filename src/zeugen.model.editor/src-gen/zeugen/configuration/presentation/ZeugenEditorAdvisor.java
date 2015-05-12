@@ -5,6 +5,7 @@ package zeugen.configuration.presentation;
 import java.io.File;
 import java.util.Arrays;
 
+import java.util.List;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 
@@ -42,10 +43,12 @@ import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.UniqueEList;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import zeugen.configuration.presentation.ZeugenEditorPlugin;
+import zeugen.zeugnis.presentation.ZeugnisEditor;
 
 /**
  * Customized {@link WorkbenchAdvisor} for the RCP application. <!--
@@ -60,8 +63,21 @@ public final class ZeugenEditorAdvisor extends WorkbenchAdvisor {
 	 * 
 	 * @generated
 	 */
-	private static final String[] FILE_EXTENSION_FILTERS = ConfigurationEditor.FILE_EXTENSION_FILTERS
-			.toArray(new String[0]);
+	private static final String[] FILE_EXTENSION_FILTERS = getFileExtensionFilters();
+
+	/**
+	 * Returns the default file extension filters. This method should only be
+	 * used to initialize {@link #FILE_EXTENSION_FILTERS}. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private static String[] getFileExtensionFilters() {
+		List<String> result = new UniqueEList<String>();
+		result.addAll(ConfigurationEditor.FILE_EXTENSION_FILTERS);
+		result.addAll(ZeugnisEditor.FILE_EXTENSION_FILTERS);
+		return result.toArray(new String[0]);
+	}
 
 	/**
 	 * This looks up a string in the plugin's plugin.properties file. <!--

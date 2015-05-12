@@ -120,13 +120,31 @@ public interface ConfigurationPackage extends EPackage {
 	int SCHULE__FAECHER = 5;
 
 	/**
+	 * The feature id for the '<em><b>Schueler</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULE__SCHUELER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Ehemalige</b></em>' containment reference
+	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULE__EHEMALIGE = 7;
+
+	/**
 	 * The number of structural features of the '<em>Schule</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SCHULE_FEATURE_COUNT = 6;
+	int SCHULE_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Schule</em>' class. <!--
@@ -312,13 +330,22 @@ public interface ConfigurationPackage extends EPackage {
 	int LEHRKRAFT__FAECHER = PERSON_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Klasse</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int LEHRKRAFT__KLASSE = PERSON_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Lehrkraft</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int LEHRKRAFT_FEATURE_COUNT = PERSON_FEATURE_COUNT + 1;
+	int LEHRKRAFT_FEATURE_COUNT = PERSON_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Lehrkraft</em>' class. <!--
@@ -589,6 +616,15 @@ public interface ConfigurationPackage extends EPackage {
 	int SCHULLEITER__FAECHER = LEHRKRAFT__FAECHER;
 
 	/**
+	 * The feature id for the '<em><b>Klasse</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__KLASSE = LEHRKRAFT__KLASSE;
+
+	/**
 	 * The number of structural features of the '<em>Schulleiter</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -681,13 +717,31 @@ public interface ConfigurationPackage extends EPackage {
 	int SCHUELER__NAMENSZUSATZ = PERSON__NAMENSZUSATZ;
 
 	/**
+	 * The feature id for the '<em><b>Klasse</b></em>' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__KLASSE = PERSON_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Zeugnis</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__ZEUGNIS = PERSON_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Schueler</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int SCHUELER_FEATURE_COUNT = PERSON_FEATURE_COUNT + 0;
+	int SCHUELER_FEATURE_COUNT = PERSON_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Schueler</em>' class. <!--
@@ -805,6 +859,32 @@ public interface ConfigurationPackage extends EPackage {
 	EReference getSchule_Faecher();
 
 	/**
+	 * Returns the meta object for the containment reference list '
+	 * {@link zeugen.configuration.Schule#getSchueler <em>Schueler</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '
+	 *         <em>Schueler</em>'.
+	 * @see zeugen.configuration.Schule#getSchueler()
+	 * @see #getSchule()
+	 * @generated
+	 */
+	EReference getSchule_Schueler();
+
+	/**
+	 * Returns the meta object for the containment reference list '
+	 * {@link zeugen.configuration.Schule#getEhemalige <em>Ehemalige</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '
+	 *         <em>Ehemalige</em>'.
+	 * @see zeugen.configuration.Schule#getEhemalige()
+	 * @see #getSchule()
+	 * @generated
+	 */
+	EReference getSchule_Ehemalige();
+
+	/**
 	 * Returns the meta object for class '{@link zeugen.configuration.Lehrkraft
 	 * <em>Lehrkraft</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -825,6 +905,18 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLehrkraft_Faecher();
+
+	/**
+	 * Returns the meta object for the reference '
+	 * {@link zeugen.configuration.Lehrkraft#getKlasse <em>Klasse</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Klasse</em>'.
+	 * @see zeugen.configuration.Lehrkraft#getKlasse()
+	 * @see #getLehrkraft()
+	 * @generated
+	 */
+	EReference getLehrkraft_Klasse();
 
 	/**
 	 * Returns the meta object for class '{@link zeugen.configuration.Notentyp
@@ -1093,6 +1185,30 @@ public interface ConfigurationPackage extends EPackage {
 	EClass getSchueler();
 
 	/**
+	 * Returns the meta object for the reference '
+	 * {@link zeugen.configuration.Schueler#getKlasse <em>Klasse</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference '<em>Klasse</em>'.
+	 * @see zeugen.configuration.Schueler#getKlasse()
+	 * @see #getSchueler()
+	 * @generated
+	 */
+	EReference getSchueler_Klasse();
+
+	/**
+	 * Returns the meta object for the reference list '
+	 * {@link zeugen.configuration.Schueler#getZeugnis <em>Zeugnis</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Zeugnis</em>'.
+	 * @see zeugen.configuration.Schueler#getZeugnis()
+	 * @see #getSchueler()
+	 * @generated
+	 */
+	EReference getSchueler_Zeugnis();
+
+	/**
 	 * Returns the meta object for enum '{@link zeugen.configuration.Geschlecht
 	 * <em>Geschlecht</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1198,6 +1314,24 @@ public interface ConfigurationPackage extends EPackage {
 		EReference SCHULE__FAECHER = eINSTANCE.getSchule_Faecher();
 
 		/**
+		 * The meta object literal for the '<em><b>Schueler</b></em>'
+		 * containment reference list feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SCHULE__SCHUELER = eINSTANCE.getSchule_Schueler();
+
+		/**
+		 * The meta object literal for the '<em><b>Ehemalige</b></em>'
+		 * containment reference list feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SCHULE__EHEMALIGE = eINSTANCE.getSchule_Ehemalige();
+
+		/**
 		 * The meta object literal for the '
 		 * {@link zeugen.configuration.impl.LehrkraftImpl <em>Lehrkraft</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1215,6 +1349,14 @@ public interface ConfigurationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LEHRKRAFT__FAECHER = eINSTANCE.getLehrkraft_Faecher();
+
+		/**
+		 * The meta object literal for the '<em><b>Klasse</b></em>' reference
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference LEHRKRAFT__KLASSE = eINSTANCE.getLehrkraft_Klasse();
 
 		/**
 		 * The meta object literal for the '
@@ -1423,6 +1565,22 @@ public interface ConfigurationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SCHUELER = eINSTANCE.getSchueler();
+
+		/**
+		 * The meta object literal for the '<em><b>Klasse</b></em>' reference
+		 * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SCHUELER__KLASSE = eINSTANCE.getSchueler_Klasse();
+
+		/**
+		 * The meta object literal for the '<em><b>Zeugnis</b></em>' reference
+		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference SCHUELER__ZEUGNIS = eINSTANCE.getSchueler_Zeugnis();
 
 		/**
 		 * The meta object literal for the '

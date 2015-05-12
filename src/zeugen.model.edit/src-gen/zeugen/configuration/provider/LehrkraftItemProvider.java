@@ -44,6 +44,7 @@ public class LehrkraftItemProvider extends PersonItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addFaecherPropertyDescriptor(object);
+			addKlassePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -63,6 +64,24 @@ public class LehrkraftItemProvider extends PersonItemProvider {
 				getString("_UI_PropertyDescriptor_description",
 						"_UI_Lehrkraft_faecher_feature", "_UI_Lehrkraft_type"),
 				ConfigurationPackage.Literals.LEHRKRAFT__FAECHER, true, false,
+				true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Klasse feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addKlassePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Lehrkraft_klasse_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Lehrkraft_klasse_feature", "_UI_Lehrkraft_type"),
+				ConfigurationPackage.Literals.LEHRKRAFT__KLASSE, true, false,
 				true, null, null, null));
 	}
 

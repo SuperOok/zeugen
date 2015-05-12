@@ -23,6 +23,8 @@ import zeugen.configuration.ConfigurationPackage;
 import zeugen.configuration.Klassenstufe;
 import zeugen.configuration.Lehrkraft;
 import zeugen.configuration.Notentyp;
+import zeugen.configuration.Person;
+import zeugen.configuration.Schueler;
 import zeugen.configuration.Schule;
 import zeugen.configuration.Schulleiter;
 
@@ -40,6 +42,10 @@ import zeugen.configuration.Schulleiter;
  * <li>{@link zeugen.configuration.impl.SchuleImpl#getKlassenstufen <em>
  * Klassenstufen</em>}</li>
  * <li>{@link zeugen.configuration.impl.SchuleImpl#getFaecher <em>Faecher</em>}</li>
+ * <li>{@link zeugen.configuration.impl.SchuleImpl#getSchueler <em>Schueler
+ * </em>}</li>
+ * <li>{@link zeugen.configuration.impl.SchuleImpl#getEhemalige <em>Ehemalige
+ * </em>}</li>
  * </ul>
  * </p>
  *
@@ -116,6 +122,26 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 	 * @ordered
 	 */
 	protected EList<Notentyp> faecher;
+
+	/**
+	 * The cached value of the '{@link #getSchueler() <em>Schueler</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getSchueler()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Schueler> schueler;
+
+	/**
+	 * The cached value of the '{@link #getEhemalige() <em>Ehemalige</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getEhemalige()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Person> ehemalige;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -327,6 +353,34 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 	 * @generated
 	 */
 	@Override
+	public EList<Schueler> getSchueler() {
+		if (schueler == null) {
+			schueler = new EObjectContainmentEList<Schueler>(Schueler.class,
+					this, ConfigurationPackage.SCHULE__SCHUELER);
+		}
+		return schueler;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EList<Person> getEhemalige() {
+		if (ehemalige == null) {
+			ehemalige = new EObjectContainmentEList<Person>(Person.class, this,
+					ConfigurationPackage.SCHULE__EHEMALIGE);
+		}
+		return ehemalige;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -342,6 +396,12 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 		case ConfigurationPackage.SCHULE__FAECHER:
 			return ((InternalEList<?>) getFaecher())
 					.basicRemove(otherEnd, msgs);
+		case ConfigurationPackage.SCHULE__SCHUELER:
+			return ((InternalEList<?>) getSchueler()).basicRemove(otherEnd,
+					msgs);
+		case ConfigurationPackage.SCHULE__EHEMALIGE:
+			return ((InternalEList<?>) getEhemalige()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -366,6 +426,10 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 			return getKlassenstufen();
 		case ConfigurationPackage.SCHULE__FAECHER:
 			return getFaecher();
+		case ConfigurationPackage.SCHULE__SCHUELER:
+			return getSchueler();
+		case ConfigurationPackage.SCHULE__EHEMALIGE:
+			return getEhemalige();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -401,6 +465,14 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 			getFaecher().clear();
 			getFaecher().addAll((Collection<? extends Notentyp>) newValue);
 			return;
+		case ConfigurationPackage.SCHULE__SCHUELER:
+			getSchueler().clear();
+			getSchueler().addAll((Collection<? extends Schueler>) newValue);
+			return;
+		case ConfigurationPackage.SCHULE__EHEMALIGE:
+			getEhemalige().clear();
+			getEhemalige().addAll((Collection<? extends Person>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -431,6 +503,12 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 		case ConfigurationPackage.SCHULE__FAECHER:
 			getFaecher().clear();
 			return;
+		case ConfigurationPackage.SCHULE__SCHUELER:
+			getSchueler().clear();
+			return;
+		case ConfigurationPackage.SCHULE__EHEMALIGE:
+			getEhemalige().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -456,6 +534,10 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 			return klassenstufen != null && !klassenstufen.isEmpty();
 		case ConfigurationPackage.SCHULE__FAECHER:
 			return faecher != null && !faecher.isEmpty();
+		case ConfigurationPackage.SCHULE__SCHUELER:
+			return schueler != null && !schueler.isEmpty();
+		case ConfigurationPackage.SCHULE__EHEMALIGE:
+			return ehemalige != null && !ehemalige.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

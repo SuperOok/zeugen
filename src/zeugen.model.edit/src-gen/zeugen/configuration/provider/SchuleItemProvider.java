@@ -104,6 +104,10 @@ public class SchuleItemProvider extends ItemProviderAdapter implements
 			childrenFeatures
 					.add(ConfigurationPackage.Literals.SCHULE__KLASSENSTUFEN);
 			childrenFeatures.add(ConfigurationPackage.Literals.SCHULE__FAECHER);
+			childrenFeatures
+					.add(ConfigurationPackage.Literals.SCHULE__SCHUELER);
+			childrenFeatures
+					.add(ConfigurationPackage.Literals.SCHULE__EHEMALIGE);
 		}
 		return childrenFeatures;
 	}
@@ -168,6 +172,8 @@ public class SchuleItemProvider extends ItemProviderAdapter implements
 		case ConfigurationPackage.SCHULE__SCHULLEITER:
 		case ConfigurationPackage.SCHULE__KLASSENSTUFEN:
 		case ConfigurationPackage.SCHULE__FAECHER:
+		case ConfigurationPackage.SCHULE__SCHUELER:
+		case ConfigurationPackage.SCHULE__EHEMALIGE:
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, false));
 			return;
@@ -210,6 +216,26 @@ public class SchuleItemProvider extends ItemProviderAdapter implements
 		newChildDescriptors.add(createChildParameter(
 				ConfigurationPackage.Literals.SCHULE__FAECHER,
 				ConfigurationFactory.eINSTANCE.createNotentyp()));
+
+		newChildDescriptors.add(createChildParameter(
+				ConfigurationPackage.Literals.SCHULE__SCHUELER,
+				ConfigurationFactory.eINSTANCE.createSchueler()));
+
+		newChildDescriptors.add(createChildParameter(
+				ConfigurationPackage.Literals.SCHULE__EHEMALIGE,
+				ConfigurationFactory.eINSTANCE.createPerson()));
+
+		newChildDescriptors.add(createChildParameter(
+				ConfigurationPackage.Literals.SCHULE__EHEMALIGE,
+				ConfigurationFactory.eINSTANCE.createLehrkraft()));
+
+		newChildDescriptors.add(createChildParameter(
+				ConfigurationPackage.Literals.SCHULE__EHEMALIGE,
+				ConfigurationFactory.eINSTANCE.createSchulleiter()));
+
+		newChildDescriptors.add(createChildParameter(
+				ConfigurationPackage.Literals.SCHULE__EHEMALIGE,
+				ConfigurationFactory.eINSTANCE.createSchueler()));
 	}
 
 	/**
@@ -226,7 +252,9 @@ public class SchuleItemProvider extends ItemProviderAdapter implements
 		Object childObject = child;
 
 		boolean qualify = childFeature == ConfigurationPackage.Literals.SCHULE__LEHRER
-				|| childFeature == ConfigurationPackage.Literals.SCHULE__SCHULLEITER;
+				|| childFeature == ConfigurationPackage.Literals.SCHULE__EHEMALIGE
+				|| childFeature == ConfigurationPackage.Literals.SCHULE__SCHULLEITER
+				|| childFeature == ConfigurationPackage.Literals.SCHULE__SCHUELER;
 
 		if (qualify) {
 			return getString("_UI_CreateChild_text2", new Object[] {

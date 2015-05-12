@@ -1,3 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name=""/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="zeugnis" nsURI="http://zeugen.zeugnis/1_0" nsPrefix="zeugen.zeugnis">
+  <eClassifiers xsi:type="ecore:EClass" name="Klasse">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klassenstufe" lowerBound="1"
+        eType="ecore:EClass configuration.ecore#//Klassenstufe"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schueler" upperBound="-1"
+        eType="ecore:EClass configuration.ecore#//Schueler" eOpposite="configuration.ecore#//Schueler/klasse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abschluesse" upperBound="-1"
+        eType="#//Abschluss" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klassenlehrer" lowerBound="1"
+        eType="ecore:EClass configuration.ecore#//Lehrkraft" eOpposite="configuration.ecore#//Lehrkraft/klasse"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Jahrgang">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="klassen" upperBound="-1"
+        eType="#//Klasse" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Abschluss">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typ" lowerBound="1" eType="#//AbschlussTyp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zeugnisse" upperBound="-1"
+        eType="#//Zeugnis" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AbschlussTyp">
+    <eLiterals name="HALBJAHR"/>
+    <eLiterals name="GANZJAHR" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Zeugnis">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schueler" eType="ecore:EClass configuration.ecore#//Schueler"
+        eOpposite="configuration.ecore#//Schueler/zeugnis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beurteilungen" upperBound="-1"
+        eType="#//Beurteilung" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Beurteilung">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notentyp" lowerBound="1"
+        eType="ecore:EClass configuration.ecore#//Notentyp"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Note" eSuperTypes="#//Beurteilung">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wert" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Formulierung" eSuperTypes="#//Beurteilung">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

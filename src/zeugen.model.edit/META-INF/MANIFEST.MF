@@ -8,7 +8,8 @@ Bundle-Activator: zeugen.configuration.provider.ZeugenEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: zeugen.configuration.provider
+Export-Package: zeugen.configuration.provider,
+ zeugen.zeugnis.provider
 Require-Bundle: org.eclipse.core.runtime,
  zeugen.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

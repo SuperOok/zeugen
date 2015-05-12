@@ -8,7 +8,7 @@
     colorProviders="true" language="" operationReflection="true" runtimePlatform="RCP"
     importOrganizing="true" cleanup="true">
   <foreignModel>configuration.ecore</foreignModel>
-  <genPackages prefix="Configuration" basePackage="zeugen" disposableProviderFactory="true"
+  <genPackages prefix="Configuration" basePackage="zeugen" resource="XML" disposableProviderFactory="true"
       ecorePackage="configuration.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//Geschlecht">
       <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//Geschlecht/MANN"/>
@@ -27,12 +27,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Schule/schulleiter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Schule/klassenstufen"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Schule/faecher"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Schule/schueler"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Schule/ehemalige"/>
     </genClasses>
-    <genClasses ecoreClass="configuration.ecore#//Lehrkraft"/>
+    <genClasses ecoreClass="configuration.ecore#//Lehrkraft">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//Lehrkraft/faecher"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//Lehrkraft/klasse"/>
+    </genClasses>
     <genClasses ecoreClass="configuration.ecore#//Notentyp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Notentyp/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Notentyp/typ"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//Notentyp/klassenstufen"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//Notentyp/lehrkraefte"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//Klassenstufe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Klassenstufe/bezeichnung"/>
@@ -52,6 +58,46 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Person/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Person/geschlecht"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Person/namenszusatz"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//Schulleiter"/>
+    <genClasses ecoreClass="configuration.ecore#//Schueler">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//Schueler/klasse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//Schueler/zeugnis"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Zeugnis" basePackage="zeugen" resource="XML" disposableProviderFactory="true"
+      ecorePackage="zeugnis.ecore#/" publicationLocation="">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="zeugnis.ecore#//AbschlussTyp">
+      <genEnumLiterals ecoreEnumLiteral="zeugnis.ecore#//AbschlussTyp/HALBJAHR"/>
+      <genEnumLiterals ecoreEnumLiteral="zeugnis.ecore#//AbschlussTyp/GANZJAHR"/>
+    </genEnums>
+    <genClasses ecoreClass="zeugnis.ecore#//Klasse">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Klasse/klassenstufe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Klasse/schueler"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Klasse/abschluesse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Klasse/klassenlehrer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute zeugnis.ecore#//Klasse/bezeichnung"/>
+    </genClasses>
+    <genClasses ecoreClass="zeugnis.ecore#//Jahrgang">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute zeugnis.ecore#//Jahrgang/bezeichnung"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Jahrgang/klassen"/>
+    </genClasses>
+    <genClasses ecoreClass="zeugnis.ecore#//Abschluss">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute zeugnis.ecore#//Abschluss/typ"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Abschluss/zeugnisse"/>
+    </genClasses>
+    <genClasses ecoreClass="zeugnis.ecore#//Zeugnis">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Zeugnis/schueler"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Zeugnis/beurteilungen"/>
+    </genClasses>
+    <genClasses ecoreClass="zeugnis.ecore#//Beurteilung">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference zeugnis.ecore#//Beurteilung/notentyp"/>
+    </genClasses>
+    <genClasses ecoreClass="zeugnis.ecore#//Note">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute zeugnis.ecore#//Note/wert"/>
+    </genClasses>
+    <genClasses ecoreClass="zeugnis.ecore#//Formulierung">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute zeugnis.ecore#//Formulierung/wert"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

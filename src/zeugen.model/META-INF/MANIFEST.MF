@@ -9,7 +9,11 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: zeugen.configuration,
  zeugen.configuration.impl,
- zeugen.configuration.util
+ zeugen.configuration.util,
+ zeugen.zeugnis,
+ zeugen.zeugnis.impl,
+ zeugen.zeugnis.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-ActivationPolicy: lazy

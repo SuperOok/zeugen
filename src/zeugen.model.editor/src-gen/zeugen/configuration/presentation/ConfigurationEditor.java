@@ -137,6 +137,7 @@ import zeugen.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.emf.common.ui.URIEditorInput;
 
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import zeugen.zeugnis.provider.ZeugnisItemProviderAdapterFactory;
 
 /**
  * This is an example of a Configuration model editor. <!-- begin-user-doc -->
@@ -614,6 +615,8 @@ public class ConfigurationEditor extends MultiPageEditorPart implements
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ConfigurationItemProviderAdapterFactory());
+		adapterFactory
+				.addAdapterFactory(new ZeugnisItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

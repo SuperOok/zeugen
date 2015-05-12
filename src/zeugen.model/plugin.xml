@@ -14,4 +14,26 @@
             genModel="model/zeugen.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated zeugen -->
+      <parser
+            type="configuration"
+            class="zeugen.configuration.util.ConfigurationResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated zeugen -->
+      <package
+            uri="http://zeugen.zeugnis/1_0"
+            class="zeugen.zeugnis.ZeugnisPackage"
+            genModel="model/zeugen.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated zeugen -->
+      <parser
+            type="zeugnis"
+            class="zeugen.zeugnis.util.ZeugnisResourceFactoryImpl"/>
+   </extension>
+
 </plugin>

@@ -53,6 +53,20 @@
    <extension point="org.eclipse.ui.actionSets">
       <!-- @generated zeugen -->
       <actionSet
+            label="%_UI_ZeugnisModelWizard_ActionSet_label"
+            visible="true"
+            id="zeugen.zeugnis.presentation.ZeugnisActionBarContributorActionSet">
+         <action
+               label="%_UI_ZeugnisModelWizard_label"
+               class="zeugen.zeugnis.presentation.ZeugnisActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="zeugen.zeugnis.presentation.ZeugnisActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated zeugen -->
+      <actionSet
             label="%_UI_ZeugenEditorAdvisor_ActionSet_label"
             visible="true"
             id="ZeugenEditorAdvisorActionSet">
@@ -99,6 +113,19 @@
             extensions="configuration"
             class="zeugen.configuration.presentation.ConfigurationEditor"
             contributorClass="zeugen.configuration.presentation.ConfigurationActionBarContributor">
+      </editor>
+   </extension>
+
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated zeugen -->
+      <editor
+            id="zeugen.zeugnis.presentation.ZeugnisEditorID"
+            name="%_UI_ZeugnisEditor_label"
+            icon="icons/full/obj16/ZeugnisModelFile.gif"
+            extensions="zeugnis"
+            class="zeugen.zeugnis.presentation.ZeugnisEditor"
+            contributorClass="zeugen.zeugnis.presentation.ZeugnisActionBarContributor">
       </editor>
    </extension>
 

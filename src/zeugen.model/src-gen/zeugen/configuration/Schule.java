@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link zeugen.configuration.Schule#getKlassenstufen <em>Klassenstufen
  * </em>}</li>
  * <li>{@link zeugen.configuration.Schule#getFaecher <em>Faecher</em>}</li>
+ * <li>{@link zeugen.configuration.Schule#getSchueler <em>Schueler</em>}</li>
+ * <li>{@link zeugen.configuration.Schule#getEhemalige <em>Ehemalige</em>}</li>
  * </ul>
  * </p>
  *
@@ -145,7 +147,7 @@ public interface Schule extends EObject {
 	 * @return the value of the '<em>Klassenstufen</em>' containment reference
 	 *         list.
 	 * @see zeugen.configuration.ConfigurationPackage#getSchule_Klassenstufen()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Klassenstufe> getKlassenstufen();
@@ -162,9 +164,43 @@ public interface Schule extends EObject {
 	 * 
 	 * @return the value of the '<em>Faecher</em>' containment reference list.
 	 * @see zeugen.configuration.ConfigurationPackage#getSchule_Faecher()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Notentyp> getFaecher();
+
+	/**
+	 * Returns the value of the '<em><b>Schueler</b></em>' containment reference
+	 * list. The list contents are of type {@link zeugen.configuration.Schueler}
+	 * . <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Schueler</em>' containment reference list
+	 * isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Schueler</em>' containment reference list.
+	 * @see zeugen.configuration.ConfigurationPackage#getSchule_Schueler()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Schueler> getSchueler();
+
+	/**
+	 * Returns the value of the '<em><b>Ehemalige</b></em>' containment
+	 * reference list. The list contents are of type
+	 * {@link zeugen.configuration.Person}. <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ehemalige</em>' containment reference list
+	 * isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Ehemalige</em>' containment reference list.
+	 * @see zeugen.configuration.ConfigurationPackage#getSchule_Ehemalige()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Person> getEhemalige();
 
 } // Schule
