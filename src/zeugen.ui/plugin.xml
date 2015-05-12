@@ -23,7 +23,7 @@
       </menuContribution>
       <menuContribution
             allPopups="false"
-            locationURI="toolbar">
+            locationURI="toolbar:zeugen.configuration.presentation.ConfigurationEditorID?after=additions">
          <command
                commandId="zeugen.ui.generateAll"
                label="Zeugnisse generieren"

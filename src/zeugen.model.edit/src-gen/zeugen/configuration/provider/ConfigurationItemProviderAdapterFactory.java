@@ -223,6 +223,54 @@ public class ConfigurationItemProviderAdapterFactory extends
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all
+	 * {@link zeugen.configuration.Schulleiter} instances. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected SchulleiterItemProvider schulleiterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link zeugen.configuration.Schulleiter}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createSchulleiterAdapter() {
+		if (schulleiterItemProvider == null) {
+			schulleiterItemProvider = new SchulleiterItemProvider(this);
+		}
+
+		return schulleiterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all
+	 * {@link zeugen.configuration.Schueler} instances. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected SchuelerItemProvider schuelerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link zeugen.configuration.Schueler}. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createSchuelerAdapter() {
+		if (schuelerItemProvider == null) {
+			schuelerItemProvider = new SchuelerItemProvider(this);
+		}
+
+		return schuelerItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -341,6 +389,10 @@ public class ConfigurationItemProviderAdapterFactory extends
 			adresseItemProvider.dispose();
 		if (personItemProvider != null)
 			personItemProvider.dispose();
+		if (schulleiterItemProvider != null)
+			schulleiterItemProvider.dispose();
+		if (schuelerItemProvider != null)
+			schuelerItemProvider.dispose();
 	}
 
 }

@@ -59,6 +59,7 @@ public class NotentypItemProvider extends ItemProviderAdapter implements
 			addNamePropertyDescriptor(object);
 			addTypPropertyDescriptor(object);
 			addKlassenstufenPropertyDescriptor(object);
+			addLehrkraeftePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -116,6 +117,26 @@ public class NotentypItemProvider extends ItemProviderAdapter implements
 						"_UI_Notentyp_type"),
 				ConfigurationPackage.Literals.NOTENTYP__KLASSENSTUFEN, true,
 				false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Lehrkraefte feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addLehrkraeftePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_Notentyp_lehrkraefte_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_Notentyp_lehrkraefte_feature",
+								"_UI_Notentyp_type"),
+						ConfigurationPackage.Literals.NOTENTYP__LEHRKRAEFTE,
+						true, false, true, null, null, null));
 	}
 
 	/**

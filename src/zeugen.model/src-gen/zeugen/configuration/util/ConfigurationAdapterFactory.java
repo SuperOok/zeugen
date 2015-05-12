@@ -97,6 +97,16 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSchulleiter(Schulleiter object) {
+			return createSchulleiterAdapter();
+		}
+
+		@Override
+		public Adapter caseSchueler(Schueler object) {
+			return createSchuelerAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -203,6 +213,36 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPersonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link zeugen.configuration.Schulleiter <em>Schulleiter</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see zeugen.configuration.Schulleiter
+	 * @generated
+	 */
+	public Adapter createSchulleiterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link zeugen.configuration.Schueler <em>Schueler</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we
+	 * can easily ignore cases; it's useful to ignore a case when inheritance
+	 * will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see zeugen.configuration.Schueler
+	 * @generated
+	 */
+	public Adapter createSchuelerAdapter() {
 		return null;
 	}
 

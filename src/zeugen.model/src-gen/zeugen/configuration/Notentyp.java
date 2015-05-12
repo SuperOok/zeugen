@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link zeugen.configuration.Notentyp#getTyp <em>Typ</em>}</li>
  * <li>{@link zeugen.configuration.Notentyp#getKlassenstufen <em>Klassenstufen
  * </em>}</li>
+ * <li>{@link zeugen.configuration.Notentyp#getLehrkraefte <em>Lehrkraefte</em>}
+ * </li>
  * </ul>
  * </p>
  *
@@ -103,5 +105,25 @@ public interface Notentyp extends EObject {
 	 * @generated
 	 */
 	EList<Klassenstufe> getKlassenstufen();
+
+	/**
+	 * Returns the value of the '<em><b>Lehrkraefte</b></em>' reference list.
+	 * The list contents are of type {@link zeugen.configuration.Lehrkraft}. It
+	 * is bidirectional and its opposite is '
+	 * {@link zeugen.configuration.Lehrkraft#getFaecher <em>Faecher</em>}'. <!--
+	 * begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Lehrkraefte</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Lehrkraefte</em>' reference list.
+	 * @see zeugen.configuration.ConfigurationPackage#getNotentyp_Lehrkraefte()
+	 * @see zeugen.configuration.Lehrkraft#getFaecher
+	 * @model opposite="faecher"
+	 * @generated
+	 */
+	EList<Lehrkraft> getLehrkraefte();
 
 } // Notentyp

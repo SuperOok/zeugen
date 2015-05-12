@@ -8,8 +8,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import zeugen.configuration.ConfigurationPackage;
 import zeugen.configuration.Lehrkraft;
 
 /**
@@ -41,8 +43,27 @@ public class LehrkraftItemProvider extends PersonItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addFaecherPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Faecher feature. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFaecherPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Lehrkraft_faecher_feature"),
+				getString("_UI_PropertyDescriptor_description",
+						"_UI_Lehrkraft_faecher_feature", "_UI_Lehrkraft_type"),
+				ConfigurationPackage.Literals.LEHRKRAFT__FAECHER, true, false,
+				true, null, null, null));
 	}
 
 	/**

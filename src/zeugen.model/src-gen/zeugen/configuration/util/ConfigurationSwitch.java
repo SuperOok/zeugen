@@ -109,6 +109,26 @@ public class ConfigurationSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ConfigurationPackage.SCHULLEITER: {
+			Schulleiter schulleiter = (Schulleiter) theEObject;
+			T result = caseSchulleiter(schulleiter);
+			if (result == null)
+				result = caseLehrkraft(schulleiter);
+			if (result == null)
+				result = casePerson(schulleiter);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ConfigurationPackage.SCHUELER: {
+			Schueler schueler = (Schueler) theEObject;
+			T result = caseSchueler(schueler);
+			if (result == null)
+				result = casePerson(schueler);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -213,6 +233,40 @@ public class ConfigurationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePerson(Person object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Schulleiter</em>'. <!-- begin-user-doc --> This implementation
+	 * returns null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Schulleiter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchulleiter(Schulleiter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Schueler</em>'. <!-- begin-user-doc --> This implementation returns
+	 * null; returning a non-null result will terminate the switch. <!--
+	 * end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Schueler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchueler(Schueler object) {
 		return null;
 	}
 

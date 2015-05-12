@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import zeugen.configuration.ConfigurationPackage;
 import zeugen.configuration.FachTyp;
 import zeugen.configuration.Klassenstufe;
+import zeugen.configuration.Lehrkraft;
 import zeugen.configuration.Notentyp;
 
 /**
@@ -33,6 +34,8 @@ import zeugen.configuration.Notentyp;
  * <li>{@link zeugen.configuration.impl.NotentypImpl#getTyp <em>Typ</em>}</li>
  * <li>{@link zeugen.configuration.impl.NotentypImpl#getKlassenstufen <em>
  * Klassenstufen</em>}</li>
+ * <li>{@link zeugen.configuration.impl.NotentypImpl#getLehrkraefte <em>
+ * Lehrkraefte</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,6 +93,16 @@ public class NotentypImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EList<Klassenstufe> klassenstufen;
+
+	/**
+	 * The cached value of the '{@link #getLehrkraefte() <em>Lehrkraefte</em>}'
+	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getLehrkraefte()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Lehrkraft> lehrkraefte;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -179,6 +192,22 @@ public class NotentypImpl extends MinimalEObjectImpl.Container implements
 	 * 
 	 * @generated
 	 */
+	@Override
+	public EList<Lehrkraft> getLehrkraefte() {
+		if (lehrkraefte == null) {
+			lehrkraefte = new EObjectWithInverseResolvingEList.ManyInverse<Lehrkraft>(
+					Lehrkraft.class, this,
+					ConfigurationPackage.NOTENTYP__LEHRKRAEFTE,
+					ConfigurationPackage.LEHRKRAFT__FAECHER);
+		}
+		return lehrkraefte;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
@@ -186,6 +215,9 @@ public class NotentypImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 		case ConfigurationPackage.NOTENTYP__KLASSENSTUFEN:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getKlassenstufen())
+					.basicAdd(otherEnd, msgs);
+		case ConfigurationPackage.NOTENTYP__LEHRKRAEFTE:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getLehrkraefte())
 					.basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -203,6 +235,9 @@ public class NotentypImpl extends MinimalEObjectImpl.Container implements
 		case ConfigurationPackage.NOTENTYP__KLASSENSTUFEN:
 			return ((InternalEList<?>) getKlassenstufen()).basicRemove(
 					otherEnd, msgs);
+		case ConfigurationPackage.NOTENTYP__LEHRKRAEFTE:
+			return ((InternalEList<?>) getLehrkraefte()).basicRemove(otherEnd,
+					msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -221,6 +256,8 @@ public class NotentypImpl extends MinimalEObjectImpl.Container implements
 			return getTyp();
 		case ConfigurationPackage.NOTENTYP__KLASSENSTUFEN:
 			return getKlassenstufen();
+		case ConfigurationPackage.NOTENTYP__LEHRKRAEFTE:
+			return getLehrkraefte();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +282,10 @@ public class NotentypImpl extends MinimalEObjectImpl.Container implements
 			getKlassenstufen().addAll(
 					(Collection<? extends Klassenstufe>) newValue);
 			return;
+		case ConfigurationPackage.NOTENTYP__LEHRKRAEFTE:
+			getLehrkraefte().clear();
+			getLehrkraefte().addAll((Collection<? extends Lehrkraft>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -266,6 +307,9 @@ public class NotentypImpl extends MinimalEObjectImpl.Container implements
 		case ConfigurationPackage.NOTENTYP__KLASSENSTUFEN:
 			getKlassenstufen().clear();
 			return;
+		case ConfigurationPackage.NOTENTYP__LEHRKRAEFTE:
+			getLehrkraefte().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -285,6 +329,8 @@ public class NotentypImpl extends MinimalEObjectImpl.Container implements
 			return typ != TYP_EDEFAULT;
 		case ConfigurationPackage.NOTENTYP__KLASSENSTUFEN:
 			return klassenstufen != null && !klassenstufen.isEmpty();
+		case ConfigurationPackage.NOTENTYP__LEHRKRAEFTE:
+			return lehrkraefte != null && !lehrkraefte.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

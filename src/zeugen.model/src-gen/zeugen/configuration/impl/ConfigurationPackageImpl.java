@@ -19,7 +19,9 @@ import zeugen.configuration.Klassenstufe;
 import zeugen.configuration.Lehrkraft;
 import zeugen.configuration.Notentyp;
 import zeugen.configuration.Person;
+import zeugen.configuration.Schueler;
 import zeugen.configuration.Schule;
+import zeugen.configuration.Schulleiter;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
@@ -70,6 +72,20 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass personEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass schulleiterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass schuelerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -239,6 +255,16 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	@Override
+	public EReference getLehrkraft_Faecher() {
+		return (EReference) lehrkraftEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EClass getNotentyp() {
 		return notentypEClass;
 	}
@@ -271,6 +297,16 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 	@Override
 	public EReference getNotentyp_Klassenstufen() {
 		return (EReference) notentypEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EReference getNotentyp_Lehrkraefte() {
+		return (EReference) notentypEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -439,6 +475,26 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	@Override
+	public EClass getSchulleiter() {
+		return schulleiterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public EClass getSchueler() {
+		return schuelerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
 	public EEnum getGeschlecht() {
 		return geschlechtEEnum;
 	}
@@ -492,11 +548,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 		createEReference(schuleEClass, SCHULE__FAECHER);
 
 		lehrkraftEClass = createEClass(LEHRKRAFT);
+		createEReference(lehrkraftEClass, LEHRKRAFT__FAECHER);
 
 		notentypEClass = createEClass(NOTENTYP);
 		createEAttribute(notentypEClass, NOTENTYP__NAME);
 		createEAttribute(notentypEClass, NOTENTYP__TYP);
 		createEReference(notentypEClass, NOTENTYP__KLASSENSTUFEN);
+		createEReference(notentypEClass, NOTENTYP__LEHRKRAEFTE);
 
 		klassenstufeEClass = createEClass(KLASSENSTUFE);
 		createEAttribute(klassenstufeEClass, KLASSENSTUFE__BEZEICHNUNG);
@@ -516,6 +574,10 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 		createEAttribute(personEClass, PERSON__NAME);
 		createEAttribute(personEClass, PERSON__GESCHLECHT);
 		createEAttribute(personEClass, PERSON__NAMENSZUSATZ);
+
+		schulleiterEClass = createEClass(SCHULLEITER);
+
+		schuelerEClass = createEClass(SCHUELER);
 
 		// Create enums
 		geschlechtEEnum = createEEnum(GESCHLECHT);
@@ -552,6 +614,8 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 
 		// Add supertypes to classes
 		lehrkraftEClass.getESuperTypes().add(this.getPerson());
+		schulleiterEClass.getESuperTypes().add(this.getLehrkraft());
+		schuelerEClass.getESuperTypes().add(this.getPerson());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(schuleEClass, Schule.class, "Schule", !IS_ABSTRACT,
@@ -568,7 +632,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 				null, 1, -1, Schule.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchule_Schulleiter(), this.getLehrkraft(), null,
+		initEReference(getSchule_Schulleiter(), this.getSchulleiter(), null,
 				"schulleiter", null, 1, 1, Schule.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -583,6 +647,11 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 
 		initEClass(lehrkraftEClass, Lehrkraft.class, "Lehrkraft", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLehrkraft_Faecher(), this.getNotentyp(),
+				this.getNotentyp_Lehrkraefte(), "faecher", null, 0, -1,
+				Lehrkraft.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(notentypEClass, Notentyp.class, "Notentyp", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -597,6 +666,11 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 		initEReference(getNotentyp_Klassenstufen(), this.getKlassenstufe(),
 				this.getKlassenstufe_Notentypen(), "klassenstufen", null, 0,
 				-1, Notentyp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getNotentyp_Lehrkraefte(), this.getLehrkraft(),
+				this.getLehrkraft_Faecher(), "lehrkraefte", null, 0, -1,
+				Notentyp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
@@ -661,6 +735,12 @@ public class ConfigurationPackageImpl extends EPackageImpl implements
 				"namenszusatz", null, 0, 1, Person.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(schulleiterEClass, Schulleiter.class, "Schulleiter",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(schuelerEClass, Schueler.class, "Schueler", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(geschlechtEEnum, Geschlecht.class, "Geschlecht");

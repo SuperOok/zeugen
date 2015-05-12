@@ -303,13 +303,22 @@ public interface ConfigurationPackage extends EPackage {
 	int LEHRKRAFT__NAMENSZUSATZ = PERSON__NAMENSZUSATZ;
 
 	/**
+	 * The feature id for the '<em><b>Faecher</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int LEHRKRAFT__FAECHER = PERSON_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Lehrkraft</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int LEHRKRAFT_FEATURE_COUNT = PERSON_FEATURE_COUNT + 0;
+	int LEHRKRAFT_FEATURE_COUNT = PERSON_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Lehrkraft</em>' class. <!--
@@ -359,13 +368,22 @@ public interface ConfigurationPackage extends EPackage {
 	int NOTENTYP__KLASSENSTUFEN = 2;
 
 	/**
+	 * The feature id for the '<em><b>Lehrkraefte</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int NOTENTYP__LEHRKRAEFTE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Notentyp</em>' class. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int NOTENTYP_FEATURE_COUNT = 3;
+	int NOTENTYP_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Notentyp</em>' class. <!--
@@ -488,6 +506,199 @@ public interface ConfigurationPackage extends EPackage {
 	int ADRESSE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '
+	 * {@link zeugen.configuration.impl.SchulleiterImpl <em>Schulleiter</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see zeugen.configuration.impl.SchulleiterImpl
+	 * @see zeugen.configuration.impl.ConfigurationPackageImpl#getSchulleiter()
+	 * @generated
+	 */
+	int SCHULLEITER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Vorname</b></em>' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__VORNAME = LEHRKRAFT__VORNAME;
+
+	/**
+	 * The feature id for the '<em><b>Nachname</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__NACHNAME = LEHRKRAFT__NACHNAME;
+
+	/**
+	 * The feature id for the '<em><b>Geburtstag</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__GEBURTSTAG = LEHRKRAFT__GEBURTSTAG;
+
+	/**
+	 * The feature id for the '<em><b>Geburtsort</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__GEBURTSORT = LEHRKRAFT__GEBURTSORT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__NAME = LEHRKRAFT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Geschlecht</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__GESCHLECHT = LEHRKRAFT__GESCHLECHT;
+
+	/**
+	 * The feature id for the '<em><b>Namenszusatz</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__NAMENSZUSATZ = LEHRKRAFT__NAMENSZUSATZ;
+
+	/**
+	 * The feature id for the '<em><b>Faecher</b></em>' reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER__FAECHER = LEHRKRAFT__FAECHER;
+
+	/**
+	 * The number of structural features of the '<em>Schulleiter</em>' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER_FEATURE_COUNT = LEHRKRAFT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Schulleiter</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHULLEITER_OPERATION_COUNT = LEHRKRAFT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '
+	 * {@link zeugen.configuration.impl.SchuelerImpl <em>Schueler</em>}' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see zeugen.configuration.impl.SchuelerImpl
+	 * @see zeugen.configuration.impl.ConfigurationPackageImpl#getSchueler()
+	 * @generated
+	 */
+	int SCHUELER = 7;
+
+	/**
+	 * The feature id for the '<em><b>Vorname</b></em>' attribute list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__VORNAME = PERSON__VORNAME;
+
+	/**
+	 * The feature id for the '<em><b>Nachname</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__NACHNAME = PERSON__NACHNAME;
+
+	/**
+	 * The feature id for the '<em><b>Geburtstag</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__GEBURTSTAG = PERSON__GEBURTSTAG;
+
+	/**
+	 * The feature id for the '<em><b>Geburtsort</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__GEBURTSORT = PERSON__GEBURTSORT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__NAME = PERSON__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Geschlecht</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__GESCHLECHT = PERSON__GESCHLECHT;
+
+	/**
+	 * The feature id for the '<em><b>Namenszusatz</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER__NAMENSZUSATZ = PERSON__NAMENSZUSATZ;
+
+	/**
+	 * The number of structural features of the '<em>Schueler</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER_FEATURE_COUNT = PERSON_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Schueler</em>' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int SCHUELER_OPERATION_COUNT = PERSON_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link zeugen.configuration.Geschlecht
 	 * <em>Geschlecht</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -495,7 +706,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see zeugen.configuration.impl.ConfigurationPackageImpl#getGeschlecht()
 	 * @generated
 	 */
-	int GESCHLECHT = 6;
+	int GESCHLECHT = 8;
 
 	/**
 	 * The meta object id for the '{@link zeugen.configuration.FachTyp
@@ -505,7 +716,7 @@ public interface ConfigurationPackage extends EPackage {
 	 * @see zeugen.configuration.impl.ConfigurationPackageImpl#getFachTyp()
 	 * @generated
 	 */
-	int FACH_TYP = 7;
+	int FACH_TYP = 9;
 
 	/**
 	 * Returns the meta object for class '{@link zeugen.configuration.Schule
@@ -604,6 +815,18 @@ public interface ConfigurationPackage extends EPackage {
 	EClass getLehrkraft();
 
 	/**
+	 * Returns the meta object for the reference list '
+	 * {@link zeugen.configuration.Lehrkraft#getFaecher <em>Faecher</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Faecher</em>'.
+	 * @see zeugen.configuration.Lehrkraft#getFaecher()
+	 * @see #getLehrkraft()
+	 * @generated
+	 */
+	EReference getLehrkraft_Faecher();
+
+	/**
 	 * Returns the meta object for class '{@link zeugen.configuration.Notentyp
 	 * <em>Notentyp</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -648,6 +871,18 @@ public interface ConfigurationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNotentyp_Klassenstufen();
+
+	/**
+	 * Returns the meta object for the reference list '
+	 * {@link zeugen.configuration.Notentyp#getLehrkraefte <em>Lehrkraefte</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Lehrkraefte</em>'.
+	 * @see zeugen.configuration.Notentyp#getLehrkraefte()
+	 * @see #getNotentyp()
+	 * @generated
+	 */
+	EReference getNotentyp_Lehrkraefte();
 
 	/**
 	 * Returns the meta object for class '
@@ -837,6 +1072,27 @@ public interface ConfigurationPackage extends EPackage {
 	EAttribute getPerson_Namenszusatz();
 
 	/**
+	 * Returns the meta object for class '
+	 * {@link zeugen.configuration.Schulleiter <em>Schulleiter</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Schulleiter</em>'.
+	 * @see zeugen.configuration.Schulleiter
+	 * @generated
+	 */
+	EClass getSchulleiter();
+
+	/**
+	 * Returns the meta object for class '{@link zeugen.configuration.Schueler
+	 * <em>Schueler</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Schueler</em>'.
+	 * @see zeugen.configuration.Schueler
+	 * @generated
+	 */
+	EClass getSchueler();
+
+	/**
 	 * Returns the meta object for enum '{@link zeugen.configuration.Geschlecht
 	 * <em>Geschlecht</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -953,6 +1209,14 @@ public interface ConfigurationPackage extends EPackage {
 		EClass LEHRKRAFT = eINSTANCE.getLehrkraft();
 
 		/**
+		 * The meta object literal for the '<em><b>Faecher</b></em>' reference
+		 * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference LEHRKRAFT__FAECHER = eINSTANCE.getLehrkraft_Faecher();
+
+		/**
 		 * The meta object literal for the '
 		 * {@link zeugen.configuration.impl.NotentypImpl <em>Notentyp</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -987,6 +1251,14 @@ public interface ConfigurationPackage extends EPackage {
 		 */
 		EReference NOTENTYP__KLASSENSTUFEN = eINSTANCE
 				.getNotentyp_Klassenstufen();
+
+		/**
+		 * The meta object literal for the '<em><b>Lehrkraefte</b></em>'
+		 * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference NOTENTYP__LEHRKRAEFTE = eINSTANCE.getNotentyp_Lehrkraefte();
 
 		/**
 		 * The meta object literal for the '
@@ -1128,6 +1400,29 @@ public interface ConfigurationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PERSON__NAMENSZUSATZ = eINSTANCE.getPerson_Namenszusatz();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link zeugen.configuration.impl.SchulleiterImpl
+		 * <em>Schulleiter</em>}' class. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
+		 * @see zeugen.configuration.impl.SchulleiterImpl
+		 * @see zeugen.configuration.impl.ConfigurationPackageImpl#getSchulleiter()
+		 * @generated
+		 */
+		EClass SCHULLEITER = eINSTANCE.getSchulleiter();
+
+		/**
+		 * The meta object literal for the '
+		 * {@link zeugen.configuration.impl.SchuelerImpl <em>Schueler</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see zeugen.configuration.impl.SchuelerImpl
+		 * @see zeugen.configuration.impl.ConfigurationPackageImpl#getSchueler()
+		 * @generated
+		 */
+		EClass SCHUELER = eINSTANCE.getSchueler();
 
 		/**
 		 * The meta object literal for the '

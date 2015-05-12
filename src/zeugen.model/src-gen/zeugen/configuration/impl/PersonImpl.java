@@ -283,21 +283,19 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * The canonical name of a Person, i.e. firstname + lastname + additional
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> The canonical name of a Person, i.e. firstname +
+	 * lastname + additional <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	@Override
 	public String getName() {
-		
+
 		// Namenszusatz
 		String zusatz = getNamenszusatz();
-		if(zusatz != null && zusatz.length() > 0){
+		if (zusatz != null && zusatz.length() > 0) {
 			zusatz = ", " + zusatz;
-		}
-		else{
+		} else {
 			zusatz = "";
 		}
 		// Vornamen
@@ -306,10 +304,9 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 			name += vorname + " ";
 		}
 		// Nachname
-		if(nachname != null){
+		if (nachname != null) {
 			name += getNachname() + zusatz;
-		}
-		else{
+		} else {
 			name += "N.N.";
 		}
 		return name;

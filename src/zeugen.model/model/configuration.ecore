@@ -9,13 +9,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lehrer" lowerBound="1"
         upperBound="-1" eType="#//Lehrkraft" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schulleiter" lowerBound="1"
-        eType="#//Lehrkraft" containment="true"/>
+        eType="#//Schulleiter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="klassenstufen" upperBound="-1"
         eType="#//Klassenstufe" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="faecher" upperBound="-1"
         eType="#//Notentyp" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Lehrkraft" eSuperTypes="#//Person"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Lehrkraft" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faecher" upperBound="-1"
+        eType="#//Notentyp" eOpposite="#//Notentyp/lehrkraefte"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Notentyp">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -23,6 +26,8 @@
         defaultValueLiteral="SCHULFACH"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="klassenstufen" upperBound="-1"
         eType="#//Klassenstufe" eOpposite="#//Klassenstufe/notentypen"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lehrkraefte" upperBound="-1"
+        eType="#//Lehrkraft" eOpposite="#//Lehrkraft/faecher"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Klassenstufe">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bezeichnung" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -60,4 +65,6 @@
     <eLiterals name="ARBEITSGEMEINSCHAFT" value="1"/>
     <eLiterals name="ANDERE" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Schulleiter" eSuperTypes="#//Lehrkraft"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Schueler" eSuperTypes="#//Person"/>
 </ecore:EPackage>

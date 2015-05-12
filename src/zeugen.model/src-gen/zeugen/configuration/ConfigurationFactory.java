@@ -76,6 +76,24 @@ public interface ConfigurationFactory extends EFactory {
 	Person createPerson();
 
 	/**
+	 * Returns a new object of class '<em>Schulleiter</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Schulleiter</em>'.
+	 * @generated
+	 */
+	Schulleiter createSchulleiter();
+
+	/**
+	 * Returns a new object of class '<em>Schueler</em>'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Schueler</em>'.
+	 * @generated
+	 */
+	Schueler createSchueler();
+
+	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 

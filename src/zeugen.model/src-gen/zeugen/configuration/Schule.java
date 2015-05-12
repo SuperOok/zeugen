@@ -112,12 +112,12 @@ public interface Schule extends EObject {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Schulleiter</em>' containment reference.
-	 * @see #setSchulleiter(Lehrkraft)
+	 * @see #setSchulleiter(Schulleiter)
 	 * @see zeugen.configuration.ConfigurationPackage#getSchule_Schulleiter()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Lehrkraft getSchulleiter();
+	Schulleiter getSchulleiter();
 
 	/**
 	 * Sets the value of the '{@link zeugen.configuration.Schule#getSchulleiter
@@ -130,7 +130,7 @@ public interface Schule extends EObject {
 	 * @see #getSchulleiter()
 	 * @generated
 	 */
-	void setSchulleiter(Lehrkraft value);
+	void setSchulleiter(Schulleiter value);
 
 	/**
 	 * Returns the value of the '<em><b>Klassenstufen</b></em>' containment

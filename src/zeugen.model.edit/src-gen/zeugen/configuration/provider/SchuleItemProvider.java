@@ -196,8 +196,12 @@ public class SchuleItemProvider extends ItemProviderAdapter implements
 				ConfigurationFactory.eINSTANCE.createLehrkraft()));
 
 		newChildDescriptors.add(createChildParameter(
+				ConfigurationPackage.Literals.SCHULE__LEHRER,
+				ConfigurationFactory.eINSTANCE.createSchulleiter()));
+
+		newChildDescriptors.add(createChildParameter(
 				ConfigurationPackage.Literals.SCHULE__SCHULLEITER,
-				ConfigurationFactory.eINSTANCE.createLehrkraft()));
+				ConfigurationFactory.eINSTANCE.createSchulleiter()));
 
 		newChildDescriptors.add(createChildParameter(
 				ConfigurationPackage.Literals.SCHULE__KLASSENSTUFEN,

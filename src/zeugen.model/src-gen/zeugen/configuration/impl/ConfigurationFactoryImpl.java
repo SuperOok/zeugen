@@ -70,6 +70,10 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements
 			return createAdresse();
 		case ConfigurationPackage.PERSON:
 			return createPerson();
+		case ConfigurationPackage.SCHULLEITER:
+			return createSchulleiter();
+		case ConfigurationPackage.SCHUELER:
+			return createSchueler();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName()
 					+ "' is not a valid classifier");
@@ -176,6 +180,28 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements
 	public Person createPerson() {
 		PersonImpl person = new PersonImpl();
 		return person;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Schulleiter createSchulleiter() {
+		SchulleiterImpl schulleiter = new SchulleiterImpl();
+		return schulleiter;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Schueler createSchueler() {
+		SchuelerImpl schueler = new SchuelerImpl();
+		return schueler;
 	}
 
 	/**

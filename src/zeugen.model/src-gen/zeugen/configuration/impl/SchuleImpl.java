@@ -24,6 +24,7 @@ import zeugen.configuration.Klassenstufe;
 import zeugen.configuration.Lehrkraft;
 import zeugen.configuration.Notentyp;
 import zeugen.configuration.Schule;
+import zeugen.configuration.Schulleiter;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -93,7 +94,7 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 	 * @generated
 	 * @ordered
 	 */
-	protected Lehrkraft schulleiter;
+	protected Schulleiter schulleiter;
 
 	/**
 	 * The cached value of the '{@link #getKlassenstufen()
@@ -238,7 +239,7 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 	 * @generated
 	 */
 	@Override
-	public Lehrkraft getSchulleiter() {
+	public Schulleiter getSchulleiter() {
 		return schulleiter;
 	}
 
@@ -247,9 +248,9 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetSchulleiter(Lehrkraft newSchulleiter,
+	public NotificationChain basicSetSchulleiter(Schulleiter newSchulleiter,
 			NotificationChain msgs) {
-		Lehrkraft oldSchulleiter = schulleiter;
+		Schulleiter oldSchulleiter = schulleiter;
 		schulleiter = newSchulleiter;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this,
@@ -269,7 +270,7 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 	 * @generated
 	 */
 	@Override
-	public void setSchulleiter(Lehrkraft newSchulleiter) {
+	public void setSchulleiter(Schulleiter newSchulleiter) {
 		if (newSchulleiter != schulleiter) {
 			NotificationChain msgs = null;
 			if (schulleiter != null)
@@ -389,7 +390,7 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 			getLehrer().addAll((Collection<? extends Lehrkraft>) newValue);
 			return;
 		case ConfigurationPackage.SCHULE__SCHULLEITER:
-			setSchulleiter((Lehrkraft) newValue);
+			setSchulleiter((Schulleiter) newValue);
 			return;
 		case ConfigurationPackage.SCHULE__KLASSENSTUFEN:
 			getKlassenstufen().clear();
@@ -422,7 +423,7 @@ public class SchuleImpl extends MinimalEObjectImpl.Container implements Schule {
 			getLehrer().clear();
 			return;
 		case ConfigurationPackage.SCHULE__SCHULLEITER:
-			setSchulleiter((Lehrkraft) null);
+			setSchulleiter((Schulleiter) null);
 			return;
 		case ConfigurationPackage.SCHULE__KLASSENSTUFEN:
 			getKlassenstufen().clear();
